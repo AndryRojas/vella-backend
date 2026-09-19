@@ -16,6 +16,7 @@ public class CorsConfig {
         config.setAllowedOrigins(List.of(
             "http://localhost:3000",          // Next.js local
             "https://belleza.vellatech.co",   // producción
+            "https://www.vellatech.co",
             "https://vellatech.co"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
