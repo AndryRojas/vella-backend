@@ -13,11 +13,13 @@ public class CorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of(
-            "http://localhost:3000",          // Next.js local
-            "https://belleza.vellatech.co",   // producción
+        config.setAllowedOriginPatterns(List.of(
+            "http://localhost:3000",              // Next.js local
+            "https://belleza.vellatech.co",       // producción (dominio propio, pendiente de conectar)
             "https://www.vellatech.co",
-            "https://vellatech.co"
+            "https://vellatech.co",
+            "https://vella-frontend-plum.vercel.app", // alias estable de producción en Vercel
+            "https://vella-frontend-*.vercel.app"     // preview deployments de Vercel
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
