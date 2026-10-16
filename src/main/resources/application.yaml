@@ -28,7 +28,7 @@ cloudinary:
 
 spring.mail:
   host: smtp.hostinger.com
-  port: 465
+  port: 587
   username: ${MAIL_USERNAME}
   password: ${MAIL_PASSWORD}
   properties:
@@ -36,9 +36,9 @@ spring.mail:
       smtp:
         auth: true
         ssl:
-          enable: true
-        starttls:
           enable: false
+        starttls:
+          enable: true
         connectiontimeout: 10000
         timeout: 10000
         writetimeout: 10000
