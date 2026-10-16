@@ -32,9 +32,12 @@ public class JwtFilter extends OncePerRequestFilter {
             if (jwtUtil.isTokenValid(token)) {
                 String username = jwtUtil.extractUsername(token);
                 String role = jwtUtil.extractRole(token);
+                Long storeId = jwtUtil.extractStoreId(token);
+                Long customerId = jwtUtil.extractCustomerId(token);
 
+                var principal = new AuthenticatedUser(username, role, storeId, customerId);
                 var auth = new UsernamePasswordAuthenticationToken(
-                        username,
+                        principal,
                         null,
                         List.of(new SimpleGrantedAuthority("ROLE_" + role))
                 );

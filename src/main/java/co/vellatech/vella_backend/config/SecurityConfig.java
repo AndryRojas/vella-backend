@@ -38,6 +38,9 @@ public class SecurityConfig {
                 .requestMatchers("/api/products/**").permitAll()
                 .requestMatchers("/api/categories/**").permitAll()
                 .requestMatchers("/api/stores/**").permitAll()
+                .requestMatchers("/api/customers/register", "/api/customers/login").permitAll()
+                // Protegidos — clientes autenticados
+                .requestMatchers("/api/customers/**").hasRole("CUSTOMER")
                 // Protegidos — solo admins
                 .requestMatchers("/api/admin/**").hasAnyRole("SUPER_ADMIN", "STORE_ADMIN")
                 .anyRequest().authenticated()
