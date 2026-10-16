@@ -25,3 +25,20 @@ cloudinary:
   cloud-name: ${CLOUDINARY_CLOUD_NAME}
   api-key: ${CLOUDINARY_API_KEY}
   api-secret: ${CLOUDINARY_API_SECRET}
+
+spring.mail:
+  host: smtp.hostinger.com
+  port: 465
+  username: ${MAIL_USERNAME}
+  password: ${MAIL_PASSWORD}
+  properties:
+    mail:
+      smtp:
+        auth: true
+        ssl:
+          enable: true
+        starttls:
+          enable: false
+
+app.mail:
+  admin-notification-to: administration@vellatech.co
